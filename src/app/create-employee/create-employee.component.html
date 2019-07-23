@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h3>New User</h3>
+      <div [hidden]="submitted" style="width: 400px;">
+        <form (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="fname">Firstname</label>
+            <input
+              type="text"
+              class="form-control"
+              id="fname"
+              required
+              [(ngModel)]="employee.firstname"
+              name="firstname"
+            />
+          </div>
+          <div class="form-group">
+            <label for="lname">Lastname</label>
+            <input
+              type="text"
+              class="form-control"
+              id="lname"
+              required
+              [(ngModel)]="employee.lastname"
+              name="lastname"
+            />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              required
+              [(ngModel)]="employee.email"
+              name="email"
+            />
+          </div>
+          <button type="sumit" class="btn btn-success">Submit</button>
+        </form>
+      </div>
+      <div [hidden]="!submitted">
+        <h4>Form submitted succesfully!</h4>
+      </div>
+    </div>
+  </div>
+</div>

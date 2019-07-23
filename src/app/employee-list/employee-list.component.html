@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <a routerLink="/add-member"><h2>Employee List</h2></a>
+        </div>
+        <div class="panel-body">
+          <table class="table table-stripped">
+            <thead>
+              <tr>
+                <th>Firstname</th>
+                <th>Lasttname</th>
+                <th>Email</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let em of employees | async" (click)="onSelect(em)">
+                <td>{{ em.firstname }}</td>
+                <td>{{ em.lastname }}</td>
+                <td>{{ em.email }}</td>
+                <td>
+                  <button
+                    class="btn btn-info"
+                    (click)="employeeDetails(em.id)"
+                  ></button>
+                  |
+                  <button
+                    class="btn btn-danger"
+                    (click)="deleteEmployee(em.id)"
+                    style="margin-left: 10px"
+                  ></button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <app-employee-details [user]="selectedUser"></app-employee-details>
+    </div>
+  </div>
+</div>
